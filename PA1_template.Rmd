@@ -27,8 +27,10 @@ summaryIntervals <- aggregate(activityData$steps ~activityData$interval,data = a
 names(summaryIntervals) <- rbind("Intervals","Steps")
 plot(summaryIntervals,type='l',main = "Average Number of Steps During 24 hours",xlab="5 minute interval from Midnight")
 maxSteps <- max(summaryIntervals$Steps)
+intervalMaxSteps <- summaryIntervals[(summaryIntervals[,2]==maxSteps),1]
 ```
-Maximum average number of steps taken during five minute interval `r maxSteps`
+Maximum average number of steps taken during five minute interval `r maxSteps`. 
+The maximum average number of steps occurred during interval `r intervalMaxSteps`.
 
 ### Impute missing values
 Use the mean value of the five minute time interval if there is no value in the data set for the number of steps

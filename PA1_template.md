@@ -37,8 +37,10 @@ plot(summaryIntervals,type='l',main = "Average Number of Steps During 24 hours",
 
 ```r
 maxSteps <- max(summaryIntervals$Steps)
+intervalMaxSteps <- summaryIntervals[(summaryIntervals[,2]==maxSteps),1]
 ```
-Maximum average number of steps taken during five minute interval 10927
+Maximum average number of steps taken during five minute interval 10927. 
+The maximum average number of steps occurred during interval 835.
 
 ### Impute missing values
 Use the mean value of the five minute time interval if there is no value in the data set for the number of steps
@@ -98,7 +100,19 @@ Plot results
 ```r
 names(weekend_steps) <- c("intervals","time","average_steps")
 q <-qplot(intervals,average_steps,data=weekend_steps,geom="line",colour=time)
+```
+
+```
+## Error in eval(expr, envir, enclos): could not find function "qplot"
+```
+
+```r
 print(q)
 ```
 
-![plot of chunk weekendPlot](figure/weekendPlot-1.png) 
+```
+## function (save = "default", status = 0, runLast = TRUE) 
+## .Internal(quit(save, status, runLast))
+## <bytecode: 0x0000000010fccd98>
+## <environment: namespace:base>
+```
